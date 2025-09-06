@@ -93,12 +93,12 @@ app.use(express.json())
 
 app.use("/"  , authRoute);
 
-app.get("/allHoldings"  ,userVerification ,  async(req, res)=>{     
+app.get("/allHoldings"   ,  async(req, res)=>{     
      let allHoldings = await HoldingModel.find({});
      res.json(allHoldings);      
 });                                               
 
-app.get("/allPosition" ,userVerification , async(req, res)=>{
+app.get("/allPosition"  , async(req, res)=>{
      let allPosition = await PositionModel.find({});
      res.send(allPosition);
 });
