@@ -42,6 +42,7 @@ const SignUpBody = () => {
   const Submit = async (e) => {
     try {
       e.preventDefault();
+      console.log("This is the Api url : ", apiUrl);
       console.log("submit trigered ");
       const { data } = await axios.post(`${apiUrl}/Auth/Signup`, Signup, {
         withCredentials: true,

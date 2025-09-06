@@ -40,6 +40,7 @@ const LoginBody = ()=> {
     const Submit = async(e)=> {
          e.preventDefault();
        try {
+        console.log("This is the Api url : ", apiUrl);
         const res = await axios.post(`${apiUrl}/Auth/Login`, login , {
             withCredentials: true,
          });
