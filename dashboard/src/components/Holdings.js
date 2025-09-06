@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios"; 
 import { Verticalchar } from "./Verticalchar";
-
+const apiUrl = process.env.REACT_APP_API_URL;
 const Holdings = () => {
 
 const [allHoldings , setallHoldings] = useState([]);
 useEffect(()=> {
 try {
-  axios.get("http://localhost:1010/allHoldings").then((res)=> {
+  axios.get(`${apiUrl}/allHoldings`).then((res)=> {
     console.log(res.data) ;
     setallHoldings(res.data);
    })

@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
 import axios  from "axios";
 const Positions = () => {
-
+  const apiUrl = process.env.REACT_APP_API_URL;
   const [allPosition , setallPosition] = useState([]);
 
   useEffect(()=> {
-     axios.get("http://localhost:1010/allPosition").then((res)=> {
+     axios.get(`${apiUrl}/allPosition`).then((res)=> {
       setallPosition(res.data);
      })
   })
