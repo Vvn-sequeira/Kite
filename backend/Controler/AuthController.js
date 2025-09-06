@@ -17,6 +17,9 @@ module.exports.Signup = async(req  , res  )=> {
         res.cookie("token" , token , {
             withCredentials: true,
             httpOnly: false,
+            secure: process.env.NODE_ENV === "production",
+            sameSite: process.env.NODE_ENV === "production" ? "None" : "Lax",
+            maxAge: 1000 * 60 * 60 * 24,
         });
 
       console.log(" SignUp data has been stored ");
@@ -52,6 +55,9 @@ module.exports.Login = async(req , res    )=> {
         res.cookie("token" , token , {
              withCredentials: true ,
              httpOnly : false , 
+             secure: process.env.NODE_ENV === "production",
+             sameSite: process.env.NODE_ENV === "production" ? "None" : "Lax",
+             maxAge: 1000 * 60 * 60 * 24,
         });
         
         res.status(201).json({message : "User loged in succesfully " , success : true , user });
